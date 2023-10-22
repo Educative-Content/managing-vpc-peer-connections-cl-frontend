@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://<Provide Private IP Address Here>:3000', // Specify the target URL where your API is hosted
+      target: 'http://<Provide Endpoint DNS Name Here>:3000', // Specify the target URL where your API is hosted
       changeOrigin: true,
     })
   );
