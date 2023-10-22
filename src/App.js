@@ -5,7 +5,7 @@ const App = () => {
   const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
-    fetch('/api/s3image')
+    fetch('api/s3image')
       .then(resp => resp.json()) 
       .then(data => {
         setResponseData(data);
