@@ -28,3 +28,41 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ddd;
 }
+
+body {
+			position: relative;
+		}
+
+		body {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-repeat: no-repeat;
+			background-size: auto;
+      background-color: #17202D;
+		}
+
+		.message-container {
+			width: 100%;
+			position: absolute;
+			margin-top: 280px;
+		}
+
+.text-center{
+  color: lightyellow;
+  opacity: 1;
+  font-family: fantasy;
+  text-align: center;
+}
+
+
+
+img{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
