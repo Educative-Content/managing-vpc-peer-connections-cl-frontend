@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; 
+import './App.css'; // Import a CSS file for styling
 
 const App = () => {
   const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
-    fetch('api/s3image')
-      .then(resp => resp.json()) 
+    fetch('http://localhost:3000/api/books')
+      .then(resp => resp.json()) // Parse the response as JSON
       .then(data => {
         setResponseData(data);
       })
@@ -15,20 +15,29 @@ const App = () => {
         console.error(err);
       });
   }, []);
-  return (
-    <div class="relative text-white min-h-screen">
-      <div class="message-container">
-        <div class="text-center">
-          <div class="text-5xl font-black m-2 mt-8">
-            <h1>Congratulations!</h1>
-            <h2>You've fetched the following image using PrivateLink</h2>
-          </div>
-          <div class="imagecontainer">
-            <img src={responseData} alt="There was an error"></img>
-          </div>
-        </div>
-      </div>
 
+  return (
+    <div>
+      <h1>Data Table</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Book</th>
+            <th>Author</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+          {responseData && responseData.map(item => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.title}</td>
+              <td>{item.author}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
