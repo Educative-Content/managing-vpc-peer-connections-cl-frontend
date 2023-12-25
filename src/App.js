@@ -5,7 +5,7 @@ const App = () => {
   const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/books')
+    fetch('api/books')
       .then(resp => resp.json()) // Parse the response as JSON
       .then(data => {
         setResponseData(data);
