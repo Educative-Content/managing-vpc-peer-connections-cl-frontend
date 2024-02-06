@@ -5,7 +5,7 @@ const App = () => {
   const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
-    fetch('api/books')
+    fetch('api')
       .then(resp => resp.json()) // Parse the response as JSON
       .then(data => {
         setResponseData(data);
@@ -17,27 +17,19 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Data Table</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Book</th>
-            <th>Author</th>
-    
-          </tr>
-        </thead>
-        <tbody>
-          {responseData && responseData.map(item => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td>{item.author}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div class="relative text-white min-h-screen">
+      <div class="message-container">
+        <div class="text-center">
+          <div class="text-5xl font-black m-2 mt-8">
+            <h1>Congratulations!</h1>
+            <h2>You've fetched the following message from your backend server</h2>
+          </div>
+          <div class="imagecontainer">
+            <h2>{responseData}</h2>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };
